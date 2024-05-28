@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: gray;
+      }
+      .maindiv {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .lab {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      input {
+        border: 2px solid black;
+        border-radius: 5px;
+        height: 30px;
+      }
+      button {
+        border: 2px solid black;
+        border-radius: 5px;
+      }
+    </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
   </head>
   <body>
-    <h1>Hello from Server</h1>
+    <div class="maindiv">
+      <h1>URL Shortener</h1>
+
+      <div>
+        <form method="POST" action="/url">
+          <label class="lab">Enter Your Orignal URL</label>
+
+          <input type="text" name="url" placeholder="http://example.com" />
+
+          <button type="submit">Genrate URL</button>
+
+          <% if (locals.id) { %>
+          <h3>URL Genrated : http://localhost/url<%=id %></h3>
+
+          <% } %>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
